@@ -1,48 +1,19 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8" />
-  <title>أسعار العملات مقابل الدينار الجزائري</title>
-  <style>
-    body { font-family: Arial, sans-serif; background: #f9f9f9; padding: 20px; }
-    .currency { background: #fff; padding: 15px; margin: 10px 0; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1);}
-  </style>
+    <meta charset="UTF-8">
+    <title>أسعار العملات في الجزائر</title>
+    <style>
+        body { font-family: Arial; text-align: center; padding: 20px; }
+        .currency { background: #f5f5f5; padding: 15px; margin: 10px; border-radius: 10px; }
+    </style>
 </head>
 <body>
-  <h2>أسعار العملات مقابل الدينار الجزائري</h2>
-  <div id="prices">جاري تحميل الأسعار...</div>
-
-  <script>
-    const apiKey = '1d4059ea64adeec2a93fa5bd';
-    const apiUrl = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/DZD`;
-
-    async function fetchRates() {
-      try {
-        const response = await fetch(apiUrl);
-        if (!response.ok) throw new Error('فشل جلب البيانات');
-        const data = await response.json();
-
-        const container = document.getElementById('prices');
-        container.innerHTML = '';
-
-        const currencies = ['USD', 'EUR', 'GBP', 'SAR']; // العملات اللي تحب تعرضها
-
-        currencies.forEach(curr => {
-          const rate = data.conversion_rates[curr];
-          if (rate) {
-            const div = document.createElement('div');
-            div.className = 'currency';
-            div.textContent = `1 دينار جزائري = ${rate.toFixed(4)} ${curr}`;
-            container.appendChild(div);
-          }
-        });
-      } catch (error) {
-        document.getElementById('prices').textContent = 'حدث خطأ في تحميل الأسعار.';
-        console.error(error);
-      }
-    }
-
-    fetchRates();
-  </script>
+    <h1>أسعار العملات اليوم</h1>
+    <div id="data">جار التحميل...</div>
+    
+    <script>
+    // سيتم إضافة كود جلب البيانات هنا لاحقًا
+    </script>
 </body>
 </html>
